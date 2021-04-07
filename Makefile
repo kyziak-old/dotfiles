@@ -6,4 +6,4 @@ link:
 	ln -nfs $(HOME)/dotfiles/bashrc $(HOME)/.bashrc 
 	curl -fLo ~/dotfiles/vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	vim -c ":PlugInstall" -cq -cq	
-	cd ./vim/plugged/YouCompleteMe && sudo python install.py --clang-completer --go-completer 
+	sudo python vim/plugged/YouCompleteMe/install.py --clang-completer --go-completer 
