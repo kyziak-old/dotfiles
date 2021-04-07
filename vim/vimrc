@@ -1,0 +1,199 @@
+"No compatible, because polyglot needs it this way set nocompatible
+"change encoding for using nerd-fonts
+set encoding=UTF-8
+set number 
+"set omnifunc=syntaxcomplete#Complete
+
+"remove line of insert, etc
+set noshowmode
+"Plugins installation
+call plug#begin()
+"Plugin for autocomplete
+Plug 'ycm-core/YouCompleteMe'
+"Plug 'lifepillar/vim-mucomplete'
+"Plug 'davidhalter/jedi-vim'
+"Plug 'xavierd/clang_complete'
+
+"Plugin for language highlighting
+Plug 'sheerun/vim-polyglot'
+
+"Nerdtree on-demand loading
+Plug 'preservim/nerdtree', {'on': 'NERDTreeToggle'}
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
+"Plugin for comments
+Plug 'preservim/nerdcommenter'
+
+"Plugin for Snippets
+Plug 'SirVer/ultisnips'
+
+"Plugin fot git integration
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+
+"ALE for linting
+Plug 'dense-analysis/ale'
+
+"Plugin for line
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+"Tagbar
+Plug 'preservim/tagbar', {'on': 'TagbarToggle'}
+
+"Plugin for closing quotation marks, parenthesis, etc
+Plug 'Raimondi/delimitMate'
+
+"Plugin for searching files 
+Plug 'ctrlpvim/ctrlp.vim'
+
+"LaTeX integration
+Plug 'lervag/vimtex'
+
+"Plugin for icons
+Plug 'ryanoasis/vim-devicons'
+call plug#end()
+"Enable specific languages configurations
+filetype plugin on
+
+"Disable arrow keys in insert mode
+imap <Up> <nop>
+imap <Right> <nop>
+imap <Left> <nop>
+imap <Down> <nop>
+
+"Disable arrow keys in normal mode and shows a nice message
+nnoremap <Up> :echoerr "Stop being an asshole"<CR>
+nnoremap <Down> :echoerr "Stop being an asshole"<CR>
+nnoremap <Left> :echoerr "Stop being an asshole"<CR>
+nnoremap <Right> :echoerr "Stop being an asshole"<CR>
+
+"Set mapleader key
+let mapleader=','
+
+""NERDTreee config
+"Custom Layouts for Nerdtree
+nnoremap <silent> <C-b> :NERDTreeToggle<CR>
+nnoremap <silent> <C-f> :NERDTreeFind<CR>
+
+" Exit Vim if NERDTree is the only window left.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
+    \ quit | endif
+"Changing fonts and stuff
+let g:NERDTreeGitStatusUseNerdFonts=1
+let g:WebDevIconsDisableDefaultFolderSymbolColorFromNERDTreeDir = 1
+let g:WebDevIconsDisableDefaultFileSymbolColorFromNERDTreeFile = 1
+"Disable highlighting
+let g:NERDTreeDisableFileExtensionHighlight = 1
+let g:NERDTreeDisableExactMatchHighlight = 1
+let g:NERDTreeDisablePatternMatchHighlight = 1
+"highlight fullname
+let g:NERDTreeFileExtensionHighlightFullName = 1
+let g:NERDTreeExactMatchHighlightFullName = 1
+let g:NERDTreePatternMatchHighlightFullName = 1
+
+"YCM config
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+let g:ycm_python_interpreter_path = ''
+let g:ycm_python_sys_path = []
+let g:ycm_extra_conf_vim_data = [
+	\  'g:ycm_python_interpreter_path',
+	\  'g:ycm_python_sys_path'
+	\]
+let g:ycm_global_ycm_extra_conf = '~/global_extra_conf.py'
+let g:ycm_key_list_previous_completion = ['<S-TAB>', '<C-p>']
+let g:ycm_key_list_select_completion = ['<TAB>', '<C-n>']
+"let g:ycm_key_list_previous_completion
+
+let g:ycm_filetype_whitelist = {
+			\ "c":1,
+			\ "cpp":1,
+			\ "objc":1,
+			\ "sh":1,
+			\ "zsh":1,
+			\ "zimbu":1,
+			\ "python":1,
+			\ }
+
+"python with virtualenv support
+py3 3
+py3 << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+	project_base_dir = os.environ['VIRTUAL_ENV']
+	activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+	execfile(activate_this, dict(__file__=activate_this))
+EOF
+
+"μComplete configuration
+"set completeopt+=menuone
+"set completeopt+=noselect
+"set shortmess+=c
+"set belloff+=ctrlg
+"let g:mucomplete#enable_auto_at_startup = 1
+
+
+
+"Nerdcommenter keymaps 
+let g:NERDCreateDefaultMappings=0
+map <leader>cs <plug>NERDCommenterToggle
+
+"airline configuration
+let g:airline#extensions#tabline#enabled = 1
+
+
+"Tagbar configuration
+nmap <silent> <F8> :TagBarToggle<CR>
+
+"Ctrlp configuration
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+
+"personalized shortcuts for tabs 
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+noremap <leader>0 :tablast<cr>
+" Go to last active tab
+"au TabLeave * let g:lasttab = tabpagenr()
+"nnoremap <silent> <c-t> :exe "tabn ".g:lasttab<cr>
+"vnoremap <silent> <c-t> :exe "tabn ".g:lasttab<cr>
+
+"Remap for changing between splits
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+"newsplits
+nnoremap <leader>h <C-w>s
+nnoremap <leader>v <C-w>v
+nnoremap <leader>q <C-w>c
+"Move split
+nnoremap <leader><C-J> <C-w>J
+nnoremap <leader><C-K> <C-w>K
+nnoremap <leader><C-H> <C-w>H
+nnoremap <leader><C-L> <C-w>L
+"personalized shortcuts for buffers 
+nnoremap <leader>n :bnext<CR> 
+nnoremap <leader>p :bprevious<CR>
+nnoremap <leader>l :ls<CR>
+
+"UltiSnippets configuration
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+let g:UltiSnipsEditSplit="vertical"
+
+hi clear Conceal
