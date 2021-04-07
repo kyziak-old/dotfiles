@@ -1,8 +1,9 @@
 all: link
-	curl -fLo ~/dotfiles/vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 link: 
 	ln -nfs /home/kyziak/dotfiles/vim/ /home/kyziak/.vim
- 
-ycm:
-	cd ./vim/plugged/YouCompleteMe && sudo python install.py
+	ln -nfs $(HOME)/dotfiles/aliases $(HOME)/.bash_aliases
+	ln -nfs $(HOME)/dotfiles/bashrc $(HOME)/.bashrc 
+	curl -fLo ~/dotfiles/vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	vim -c ":PlugInstall" -cq -cq	
+	cd ./vim/plugged/YouCompleteMe && sudo python install.py --clang-completer --go-completer 
