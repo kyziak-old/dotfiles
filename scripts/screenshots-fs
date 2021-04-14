@@ -1,0 +1,3 @@
+#!/bin/bash 
+
+maim ~/pictures/screenshots/$(date '+%Y%m%d%H%M%S').png; xclip -selection clipboard -t image/png < ~/pictures/screenshots/$(ls -t ~/pictures/screenshots | head -n1)
