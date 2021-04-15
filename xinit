@@ -22,6 +22,7 @@ ibus-daemon -drx
 #change Compose key
 setxkbmap -option compose:rctrl
 
+blueman-applet &
 picom -b -f &
 nitrogen --restore &
 sxhkd &
