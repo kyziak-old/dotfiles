@@ -144,3 +144,25 @@ XF86AudioMute
 XF86AudioMicMute
 	pactl set-source-mute 1 toggle
 
+#################
+#  Screenshots  #
+#################
+
+#ss fullscreen
+Print
+	~/dotfiles/scripts/screenshots-fs
+##ss rectangular or window
+super + Print
+	~/dotfiles/scripts/screenshots
+
+############
+#  screen  #
+############
+
+#lock screen
+XF86WebCam
+	i3lock
+
+#change bright 
+XF86MonBrightness{Up,Down}
+	brightnessctl set {+7%,7%-}
