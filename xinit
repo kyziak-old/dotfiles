@@ -1,0 +1,28 @@
+#!/bin/bash
+#
+#~/.xinitrc
+#
+#
+
+if [-d /etc/X11/xinit/xinitrc.d]; then
+	for f in /etc/X11/xinit/xinitrc.d/*; do
+		[ -x "$f" ] && . "$f"
+	done
+	unset f
+fi
+
+# Settings for Japanese input
+export GTK_IM_MODULE='ibus'
+export QT_IM_MODULE='ibus'
+export XMODIFIERS=@im='ibus'
+
+#Toolbar for anthy
+ibus-daemon -drx
+
+#change Compose key
+setxkbmap -option compose:rctrl
+
+picom -b -f &
+nitrogen --restore &
+sxhkd &
+exec bspwm

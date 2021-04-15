@@ -41,11 +41,11 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 #Control de brillo usando Brightness
 bindsym XF86MonBrightnessDown exec brightnessctl set 2%
-bindsym xF86MonBrightnessIp exec brightnessctl set +2%
+bindsym XF86MonBrightnessUp exec brightnessctl set +50%
 
 #screenshots
-$mod+Print exec $HOME/dotfiles/scripts/screenshots-fs
-$mod+Shift+Print exec $HOME/dotfiles/scripts/screenshots-fs
+#$mod+Print exec $HOME/dotfiles/scripts/screenshots-fs
+#$mod+Shift+Print exec $HOME/dotfiles/scripts/screenshots-fs
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -72,7 +72,7 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+b split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -93,7 +93,7 @@ bindsym $mod+space focus mode_toggle
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1: "
+set $ws1 "1: " 
 set $ws2 "2: "
 set $ws3 "3: "
 set $ws4 "4: "
@@ -184,9 +184,15 @@ client.focused #bf7500 #bf7500 #bf7500 #ffe570
 gaps outer 10
 gaps inner 8
 smart_gaps on
-smart_border on
+smart_borders on
 
-for_window [class="^.*"] border pixel 3
+for_window [class=".*"] border pixel 3
 
 exec picom -b -f
 exec --no-startup-id nitrogen --restore
+
+#send diferent windows to different ws
+assign [class='firefox'] $ws2
+assign [class='vlc'] $ws3
+assign [class='stremio'] $ws3
+assign [class='(?)Steam'] $ws4
