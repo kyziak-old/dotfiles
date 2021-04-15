@@ -123,3 +123,24 @@ super + {Left,Down,Up,Right}
 #open-programs
 super + shift + t
 	exec telegram-desktop &
+
+#
+#personalized commands 
+#
+super + ctrl + shift + l
+	i3lock
+
+##################
+# VOLUME CONTROL #
+##################
+
+#Change volume
+XF86Audio{Raise,Lower}Volume
+	pactl set-sink-volume @DEFAULT_SINK@ {+5%,-5%} 
+#mute audio
+XF86AudioMute
+	pactl set-sink-mute @DEFAULT_SINK@ toggle
+#mute mic
+XF86AudioMicMute
+	pactl set-source-mute 1 toggle
+
