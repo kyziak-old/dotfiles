@@ -1,14 +1,24 @@
 #!/bin/bash
+bat=$(acpi -a)
+batteryStatus(){
+if [ "$bat" = "Adapter 0: on-line" ]; then
+  xset dpms 0 0 60 
+else 
+ sleep 2s
+ systemctl suspend
+fi
+}
 revert() {
   rm /tmp/*screen*.png
   xset dpms 0 0 0
 }
 i3triggerBlur(){
   trap revert HUP INT TERM
-  xset +dpms dpms 0 0 5
   maim -d 0 /tmp/lock-screen.png
   convert -blur 0x8 /tmp/lock-screen.png /tmp/lock-blur-screen.png
-  i3lock -i /tmp/lock-blur-screen.png
+  convert /tmp/lock-blur-screen.png ~/dotfiles/scripts/icons/komi-san.png -geometry -20x1200 -gravity South -composite /tmp/screen.png  
+  i3lock -i /tmp/screen.png -n -ef
+  batteryStatus
   revert
 }
 if [ $(grep -r "RUNNING" /proc/asound | wc -l) -eq 0 ]; then
