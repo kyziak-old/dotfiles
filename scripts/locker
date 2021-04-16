@@ -1,0 +1,17 @@
+#!/bin/bash
+revert() {
+  rm /tmp/*screen*.png
+  xset dpms 0 0 0
+}
+i3triggerBlur(){
+  trap revert HUP INT TERM
+  xset +dpms dpms 0 0 5
+  maim -d 0 /tmp/lock-screen.png
+  convert -blur 0x8 /tmp/lock-screen.png /tmp/lock-blur-screen.png
+  i3lock -i /tmp/lock-blur-screen.png
+  revert
+}
+if [ $(grep -r "RUNNING" /proc/asound | wc -l) -eq 0 ]; then
+ i3triggerBlur
+fi
+  
