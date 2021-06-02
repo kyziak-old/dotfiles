@@ -4,26 +4,34 @@
 #
 #
 
-if [-d /etc/X11/xinit/xinitrc.d]; then
-	for f in /etc/X11/xinit/xinitrc.d/*; do
-		[ -x "$f" ] && . "$f"
-	done
-	unset f
-fi
+#if [-d /etc/X11/xinit/xinitrc.d]; then
+#	for f in /etc/X11/xinit/xinitrc.d/*; do
+#		[ -x "$f" ] && . "$f"
+#	done
+#	unset f
+#fi
 
 # Settings for Japanese input
 export GTK_IM_MODULE='ibus'
 export QT_IM_MODULE='ibus'
 export XMODIFIERS=@im='ibus'
+#export XDG_CURRENT_DESKTOP="KDE"
+#export KDE_SESSION_VERSION="5"
 
 #Toolbar for anthy
 ibus-daemon -drx
 
 #change Compose key
-setxkbmap -option compose:rctrl
+#setxkbmap -option compose:ralt
 
+#load locker
+exec xautolock -locker "~/dotfiles/scripts/locker" -time 10 -detectsleep -corners +-0- -cornerdelay 5 &
+
+sct 3600
+xset dpms 0 0 0&
+spotifyd --no-daemon &
 blueman-applet &
-picom -b -f &
-nitrogen --restore &
+#picom -b -f &
+#nitrogen --restore &
 sxhkd &
-exec bspwm
+#exec bspwm
