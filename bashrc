@@ -31,4 +31,8 @@ esac
 
 [ -r /usr/share/bash-completion/bash_completion   ] && . /usr/share/bash-completion/bash_completion
 
-
+spotify(){
+  spotifyd --no-daemon &
+  sleep 5
+  spt
+}
