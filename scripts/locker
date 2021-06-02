@@ -21,7 +21,9 @@ i3triggerBlur(){
   batteryStatus
   revert
 }
-if [ $(grep -r "RUNNING" /proc/asound | wc -l) -eq 0 ]; then
- i3triggerBlur
+if pacmd list-sink-inputs  | grep -w state | grep -q RUNNING ; then
+  echo "no tengo idea"
+else 
+  i3triggerBlur
 fi
   
