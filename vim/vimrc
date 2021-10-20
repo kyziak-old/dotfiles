@@ -1,71 +1,79 @@
-"No compatible, because polyglot needs it this way set nocompatible
-"change encoding for using nerd-fonts
+" No compatible, because polyglot needs it this way set nocompatible
+" change encoding for using nerd-fonts
 set encoding=UTF-8
 set number 
-"set omnifunc=syntaxcomplete#Complete
+" set omnifunc=syntaxcomplete#Complete
 
-"remove line of insert, etc
+" remove line of insert, etc
 set noshowmode
 
-"Plugins installation
+""""""""""""""""""""""""""""""""""""""""""""" 
+""""""" Plugins installation"""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""" 
+
 call plug#begin()
-"Plugin for autocomplete
-Plug 'ycm-core/YouCompleteMe'
-"Plug 'lifepillar/vim-mucomplete'
-"Plug 'davidhalter/jedi-vim'
-"Plug 'xavierd/clang_complete'
+	"Plugin for autocomplete
+	Plug 'ycm-core/YouCompleteMe'
+	"Plug 'lifepillar/vim-mucomplete'
+	"Plug 'davidhalter/jedi-vim'
+	"Plug 'xavierd/clang_complete'
 
 "Plugin for golang
-Plug 'fatih/vim-go'
+	Plug 'fatih/vim-go'
 
 "Plugin for language highlighting
-Plug 'sheerun/vim-polyglot'
+	Plug 'sheerun/vim-polyglot'
 
 "Nerdtree on-demand loading
-Plug 'preservim/nerdtree', {'on': 'NERDTreeToggle'}
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+	Plug 'preservim/nerdtree', {'on': 'NERDTreeToggle'}
+	Plug 'Xuyuanp/nerdtree-git-plugin'
+	Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 "Plugin for comments
-Plug 'preservim/nerdcommenter'
+	Plug 'preservim/nerdcommenter'
 
 "Plugin for Snippets
-Plug 'SirVer/ultisnips'
+	Plug 'SirVer/ultisnips'
 
 "Plugin fot git integration
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
+	Plug 'tpope/vim-fugitive'
+	Plug 'airblade/vim-gitgutter'
 
 "ALE for linting
-Plug 'dense-analysis/ale'
+	Plug 'dense-analysis/ale'
 
 "Plugin for line
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+	Plug 'vim-airline/vim-airline'
+	Plug 'vim-airline/vim-airline-themes'
 
 "Tagbar
-Plug 'preservim/tagbar', {'on': 'TagbarToggle'}
+	Plug 'preservim/tagbar', {'on': 'TagbarToggle'}
 
 "Plugin for closing quotation marks, parenthesis, etc
-Plug 'Raimondi/delimitMate'
+	Plug 'Raimondi/delimitMate'
 
 "Plugin for searching files 
-Plug 'ctrlpvim/ctrlp.vim'
+	Plug 'ctrlpvim/ctrlp.vim'
 
 "LaTeX integration
-Plug 'lervag/vimtex'
+	Plug 'lervag/vimtex'
 
 "Plugin for icons
-Plug 'ryanoasis/vim-devicons'
+	Plug 'ryanoasis/vim-devicons'
 
 "Dracula theme
-Plug 'dracula/vim',{'name':'dracula'}
+	Plug 'dracula/vim',{'name':'dracula'}
+
+"javasript vim
 
 call plug#end()
-"Enable specific languages configurations
+
+
+
+" Enable specific languages configurations
 filetype plugin on
 
-"set theme
+" set theme
 colorscheme dracula
 
 
@@ -75,16 +83,20 @@ colorscheme dracula
 "imap <Left> <nop>
 "imap <Down> <nop>
 
-"Disable arrow keys in normal mode and shows a nice message
+" Disable arrow keys in normal mode and shows a nice message
 nnoremap <Up> :echoerr "Stop being an asshole"<CR>
 nnoremap <Down> :echoerr "Stop being an asshole"<CR>
 nnoremap <Left> :echoerr "Stop being an asshole"<CR>
 nnoremap <Right> :echoerr "Stop being an asshole"<CR>
 
-"Set mapleader key
+" Set mapleader key
 let mapleader=','
 
-""NERDTreee config
+
+""""""""""""""""""""""""""""""""""""""""""""" 
+""""""""""""NERDTreee config"""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""" 
+
 "Custom Layouts for Nerdtree
 nnoremap <silent> <C-b> :NERDTreeToggle<CR>
 nnoremap <silent> <C-f> :NERDTreeFind<CR>
@@ -92,20 +104,26 @@ nnoremap <silent> <C-f> :NERDTreeFind<CR>
 " Exit Vim if NERDTree is the only window left.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
     \ quit | endif
-"Changing fonts and stuff
+" Changing fonts and stuff
 let g:NERDTreeGitStatusUseNerdFonts=1
 let g:WebDevIconsDisableDefaultFolderSymbolColorFromNERDTreeDir = 1
 let g:WebDevIconsDisableDefaultFileSymbolColorFromNERDTreeFile = 1
-"Disable highlighting
+" Disable highlighting
 let g:NERDTreeDisableFileExtensionHighlight = 1
 let g:NERDTreeDisableExactMatchHighlight = 1
 let g:NERDTreeDisablePatternMatchHighlight = 1
-"highlight fullname
+" highlight fullname
 let g:NERDTreeFileExtensionHighlightFullName = 1
 let g:NERDTreeExactMatchHighlightFullName = 1
 let g:NERDTreePatternMatchHighlightFullName = 1
 
-"YCM config
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""" 
+""""""""""""""""YCM config"""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""" 
+
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
@@ -148,26 +166,56 @@ EOF
 "set belloff+=ctrlg
 "let g:mucomplete#enable_auto_at_startup = 1
 
+ 
+""""""""""""""""""""""""""""""""""""""""""""" 
+""""""""" Nerd Commenter Config """"""""""""" 
+""""""""""""""""""""""""""""""""""""""""""""" 
 
-
-"Nerdcommenter keymaps 
+""""""""" configurations
 let g:NERDCreateDefaultMappings=0
-map <leader>cs <plug>NERDCommenterToggle
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDDefaultAlign = 'left'
+let g:NERDCommentEmptyLines = 1
+let g:NERDTrimTraillingWhitespace = 1
+let g:NERDToggleCheckAllLines = 1
 
-"airline configuration
+" Nerdcommenter keymaps 
+map <leader>cs <plug>NERDCommenterToggle
+map <leader>cc <Plug>NERDCommenterAppend 
+map <leader>cb <Plug>NERDCommenterSexy
+
+
+""""""""""""""""""""""""""""""""""""""""""""" 
+""""""""""""airline configuration""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""" 
+
 let g:airline#extensions#tabline#enabled = 1
 
 
-"Tagbar configuration
-nmap <silent> <F8> :TagBarToggle<CR>
+""""""""""""""""""""""""""""""""""""""""""""" 
+""""""""""""Tagbar configuration"""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""" 
 
-"Ctrlp configuration
+nmap <silent> <F8> :TagbarToggle<CR>
+
+
+""""""""""""""""""""""""""""""""""""""""""""" 
+""""""""""""""Ctrlp configuration""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""" 
+
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
-"personalized shortcuts for tabs 
+
+
+""""""""""""""""""""""""""""""""""""""""""""" 
+""""""""""""""Custom shortcuts"""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""" 
+
+""" Tabs 
 noremap <leader>1 1gt
 noremap <leader>2 2gt
 noremap <leader>3 3gt
@@ -183,6 +231,7 @@ noremap <leader>0 :tablast<cr>
 "nnoremap <silent> <c-t> :exe "tabn ".g:lasttab<cr>
 "vnoremap <silent> <c-t> :exe "tabn ".g:lasttab<cr>
 
+""" Splits 
 "Remap for changing between splits
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -202,10 +251,37 @@ nnoremap <leader>n :bnext<CR>
 nnoremap <leader>p :bprevious<CR>
 nnoremap <leader>l :ls<CR>
 
-"UltiSnippets configuration
+
+""""""""""""""""""""""""""""""""""""""""""""" 
+"""""""UltiSnippets configuration""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""" 
+
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 let g:UltiSnipsEditSplit="vertical"
 
 hi clear Conceal
+
+"Close preview window when autocomplete is done
+augroup completion_preview_close
+	  autocmd!
+	  autocmd CompleteDone * if !&previewwindow && &completeopt =~ 'preview' | silent! pclose | endif
+augroup END
+
+
+""""""""""""""""""""""""""""""""""""""""""""" 
+""""""""""""ale configuration""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""" 
+
+"Fix on save with ale
+let g:ale_fix_on_save = 1
+
+"Change how ale display error and warnings
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_sign_warning = ''
+let g:ale_sign_error = ''
+
+
