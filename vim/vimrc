@@ -289,3 +289,4 @@ let g:ale_sign_error = ''
 "Fugitive shortcuts
 """"""""""""""""""""""""""""""""""""""""""""" 
 map <leader>ga :Gwrite<cr>
+map <silent> <leader>gc :Git commit<cr>
