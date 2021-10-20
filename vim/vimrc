@@ -6,6 +6,7 @@ set number
 
 "remove line of insert, etc
 set noshowmode
+
 "Plugins installation
 call plug#begin()
 "Plugin for autocomplete
@@ -13,6 +14,9 @@ Plug 'ycm-core/YouCompleteMe'
 "Plug 'lifepillar/vim-mucomplete'
 "Plug 'davidhalter/jedi-vim'
 "Plug 'xavierd/clang_complete'
+
+"Plugin for golang
+Plug 'fatih/vim-go'
 
 "Plugin for language highlighting
 Plug 'sheerun/vim-polyglot'
@@ -53,15 +57,23 @@ Plug 'lervag/vimtex'
 
 "Plugin for icons
 Plug 'ryanoasis/vim-devicons'
+
+"Dracula theme
+Plug 'dracula/vim',{'name':'dracula'}
+
 call plug#end()
 "Enable specific languages configurations
 filetype plugin on
 
+"set theme
+colorscheme dracula
+
+
 "Disable arrow keys in insert mode
-imap <Up> <nop>
-imap <Right> <nop>
-imap <Left> <nop>
-imap <Down> <nop>
+"imap <Up> <nop>
+"imap <Right> <nop>
+"imap <Left> <nop>
+"imap <Down> <nop>
 
 "Disable arrow keys in normal mode and shows a nice message
 nnoremap <Up> :echoerr "Stop being an asshole"<CR>
