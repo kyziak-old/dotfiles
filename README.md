@@ -23,18 +23,18 @@ Eliminamos todos los archivos de configuración de bash y vim que pudiesen exist
 rm -rf ~/.vim ~/.bash*
 ```
 Y creamos los links simbólicos correspondientes para usar estos archivos como los de configuración de vim y bash 
-* vim
-		```
-		ln -nfs $HOME/.dotfiles/vim $HOME/.vim
-		```
-* bashrc
-		```
-		ln -nfs $HOME/.dotfiles/bashrc $HOME/.bashrc	
-		```
-* bash_aliases
-		```
-			ln -nfs $HOME/.dotfiles/aliases $HOME/.bash_aliases
-		```
+* vim </br>
+```
+ln -nfs $HOME/.dotfiles/vim $HOME/.vim
+```
+* bashrc </br>
+```
+ln -nfs $HOME/.dotfiles/bashrc $HOME/.bashrc	
+```
+* bash_aliases </br>
+```
+ln -nfs $HOME/.dotfiles/aliases $HOME/.bash_aliases
+```
 
 ## Paquetes necesarios
 
