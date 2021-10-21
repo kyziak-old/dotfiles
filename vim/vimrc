@@ -293,3 +293,4 @@ map <silent> <leader>gc :Git commit<CR><CR>
 map <leader>gs :Git status<CR>
 map <leader>gd :Gvdiffsplit<CR>
 map <leader>gg :vert Git<CR>
+map <leader>gp :Git push<CR>
