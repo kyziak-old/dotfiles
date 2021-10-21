@@ -10,9 +10,9 @@ Esta Readme tiene como propósito guiarme paso a paso en la reproducción de las
 		- [Nodejs](#nodejs)
 		- [Go](#golang)
 - [Vim](#vim)
-	-[Go](#go)
-	-[Javascript](#javascript)
-	-[Plugins](#plugins)
+	- [Go](#go)
+	- [Javascript](#javascript)
+	- [Plugins](#plugins)
 
 ## Clonación
 
@@ -157,4 +157,22 @@ Con esto ya se puede usar ALE y YCM en proyectos que involucren javascript.
 ### Plugins
 
 Lista de plugins que uso en vim 
-- https://github.com/ycm-core/YouCompleteMe
+- [You Complete Me](https://github.com/ycm-core/YouCompleteMe)
+- [Vim Go](https://github.com/fatih/vim-go)
+- [Vim Polyglot](https://github.com/sheerun/vim-polyglot)
+- [NERDTree](https://github.com/preservim/nerdtree)
+- [NERDTree Git Plugin](https://github.com/Xuyuanp/nerdtree-git-plugin)
+- [NERDTree Syntax Highlight](https://github.com/tiagofumo/vim-nerdtree-syntax-highlight)
+- [NERDCommenter](https://github.com/preservim/nerdcommenter)
+- [Ultisnips](https://github.com/SirVer/ultisnips)
+- [fuGITive](https://github.com/tpop/vim-fugitive)
+- [vim-gitgutter](https://github.com/airblade/vim-gitgutter)
+- [Asynchronous Lint Engine](https://github.com/dense-analysis/ale)
+- [Airline](https://github.com/vim-airline/vim-airline)
+- [Airline themes](https://github.com/vim-airline/vim-airline-themes)
+- [Tagbar](https://github.com/preservim/tagbar)
+- [Delimit Mate](https://github.com/Raimondi/delimitMate)
+- [Ctlr-p](https://github.com/ctrlpvim/ctrlp.vim)
+- [Vimtex](https://github.com/lervag/vimtex)
+- [Vim devicons](https://github.com/ryanoasis/vim-devicons)
+- [Dracula theme](https://github.com/dracula/vim)

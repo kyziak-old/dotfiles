@@ -19,7 +19,7 @@ call plug#begin()
 	"Plug 'xavierd/clang_complete'
 
 "Plugin for golang
-	Plug 'fatih/vim-go'
+	Plug 'fatih/vim-go',{'do': ':GoUpdateBinaries'}
 
 "Plugin for language highlighting
 	Plug 'sheerun/vim-polyglot'
