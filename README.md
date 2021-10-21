@@ -4,13 +4,13 @@ Esta Readme tiene como propósito guiarme paso a paso en la reproducción de las
 
 ## Tabla de contenidos
 1. [Clonación](#clonación)
-2. [Paquetes Necesarios](#paquetes-necesarios) 
-	2.1 [Arch Linux](#arch-linux)
-	2.2 [Ubuntu](#ubuntu)
-		2.2.1 [Nodejs](#nodejs)
-		2.2.2 [Go](#golang)
-3. [Bash](#bash)
-4. [Vim](#vim)
+1. [Paquetes Necesarios](#paquetes-necesarios) 
+	1. [Arch Linux](#arch-linux)
+	1. [Ubuntu](#ubuntu)
+		1. [Nodejs](#nodejs)
+		1. [Go](#golang)
+1. [Bash](#bash)
+1. [Vim](#vim)
 
 ## Clonación
 
