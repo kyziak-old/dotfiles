@@ -13,3 +13,8 @@ alias gd='git diff'
 alias ga='git add'
 alias gl='git log'
 alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT0'
+
+# aliases for ls 
+alias ll='ls -alF'
+alias la='ls -a'
+alias l='ls -CF'
