@@ -4,9 +4,8 @@ set backspace=indent,eol,start
 let g:go_fmt_command = "goimports"
 let g:go_auto_type_info = 1
 
-
 "special mapping 
-inoremap <buffer> . .<C-x><C-o>
+inoremap <buffer> <C-Space> <C-x><C-o>
 
 "custom maps
 nmap <leader>r <Plug>(go-run)
