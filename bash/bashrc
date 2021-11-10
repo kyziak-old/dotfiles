@@ -1,0 +1,65 @@
+#
+# /etc/bash.bashrc
+#
+
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000
+HISTFILESIZE=2000
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+#shopt -s checkwinsize 
+
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+[[ $DISPLAY ]] && shopt -s checkwinsize
+
+#Include Prompt color configuration
+
+if [ -f $HOME/.dotfiles/bash/prompt ]; then
+  . $HOME/.dotfiles/bash/prompt
+fi
+
+#Alias for long 'running commands'
+
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e'\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+#auto-startx 
+#if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+#  exec startx
+#fi
+
+
+# Include aliases file
+if [ -f ~/.bash_aliases ]; then
+  . ~/.bash_aliases
+fi
+
+#case ${TERM} in
+#  xterm*|rxvt*|Eterm|aterm|kterm|gnome*)
+#    PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }'printf "\033]0;%s@%s:%s\007" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/\~}"'
+
+#    ;;
+#  screen*)
+#    PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }'printf "\033_%s@%s:%s\033\\" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/\~}"'
+#    ;;
+#esac
+
+[ -r /usr/share/bash-completion/bash_completion   ] && . /usr/share/bash-completion/bash_completion
+
+spotify(){
+  spotifyd --no-daemon &
+  sleep 5
+  spt
+}

@@ -1,0 +1,41 @@
+__PS1_USER='\[\033[01;32m\]\u'
+__PS1_ARROBA='@'
+__PS1_HOST='\[\033[01;32m\]\h'
+__PS1_SEPARATOR='\[\033[00m\]:'
+__PS1_LOCATION='\[\033[01;34m\]\w'
+__PS1_ROOT='\[\033[00m\]\$ '
+
+# set a fancy prompt (non-color, unless we know we "want" color)
+case "$TERM" in
+  term-color|*-256color) color_prompt=yes;;
+esac
+
+#Colores en el prompt
+if [ -n "$force_color_prompt" ]; then
+  if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+    color_prompt=yes
+  else
+    color_prompt=
+  fi
+fi
+
+if [ "$color_prompt"=yes ]; then
+  PS1="${__PS1_USER}${__PS1_ARROBA}${__PS1_HOST}${__PS1_SEPARATOR}${__PS1_LOCATION}${__PS1_ROOT}"
+else
+  PS1='[\u@\h \W]\$ '
+fi
+unset color_prompt force_color_prompt
+
+##
+# Enable color support for ls
+##
+if [ -x /usr/bin/dircolors ]; then
+  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+  alias ls='ls --color=auto'
+  alias grep='grep --color=auto'
+  alias fgrep='fgrep --color=auto'
+  alias egrep='egrep --color=auto'
+fi
+
+#Support color for windows files
+export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
