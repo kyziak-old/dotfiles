@@ -51,6 +51,6 @@ git_distance(){
 	fi
 
 	if [ ! -z "$DIST_STRING" ]; then
-		echo -en "\o33[1;7m $DIST_STRING "
+		echo -en "\033[38;5;7m $DIST_STRING "
 	fi	
 }
