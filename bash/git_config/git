@@ -44,10 +44,10 @@ git_distance(){
 
 	if [ ! -z "$IS_AHEAD" ]; then
 		local DIST_VAL=$(echo "$IS_AHEAD" | sed 's/[^0-9]*//g')
-		DIST_STRING="$DIST_VAL ››"
+		DIST_STRING="$DIST_VAL "
 	elif [ ! -z "$IS_BEHIND" ]; then
 		local DIST_VAL=$(echo "$IS_BEHIND" | sed 's/[^0-9]*//g')
-		DIST_STRING="‹‹ $DIST_VAL"
+		DIST_STRING=" $DIST_VAL"
 	fi
 
 	if [ ! -z "$DIST_STRING" ]; then
