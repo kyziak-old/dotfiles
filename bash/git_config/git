@@ -1,3 +1,5 @@
+#!/bin/bash
+
 git_branch(){
 	echo "$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ ( \1) /')"
 }
@@ -10,6 +12,12 @@ git_status(){
 	local MOD=$(echo "$STATUS" | grep 'M  ' | wc -l)
 	local DEL=$(echo "$STATUS" | grep 'D  ' | wc -l)
 	local ADD=$(echo "$STATUS" | grep 'A  ' | wc -l)
+	local TEST=$(echo $STATUS | grep 'MM' | wc -l)
+	if [ ! -z "$TEST" ]; then
+		MOD=$(($MOD + $TEST))
+		MODIFIED=$(($MODIFIED + $TEST))
+	fi
+	
 	local ADDED=$(($MOD + $DEL + $ADD))
 
 	if [ $ADDED != 0 ]; then
@@ -19,7 +27,7 @@ git_status(){
 
 	if [ $MODIFIED != 0 ]; then
 		# STATS="\033[38;5;0m\033[48;5;3m  $MODIFIED "
-		STATS="\033[38;5;3m  $MODIFIED "
+		STATS="$STATS\033[38;5;3m  $MODIFIED "
 	fi
 
 	if [ $UNTRACKED != 0 ]; then
