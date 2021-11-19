@@ -50,7 +50,7 @@ call plug#begin()
 	Plug 'preservim/tagbar', {'on': 'TagbarToggle'}
 
 "Plugin for closing quotation marks, parenthesis, etc
-	Plug 'Raimondi/delimitMate'
+	" Plug 'Raimondi/delimitMate'
 
 "Plugin for searching files 
 	Plug 'ctrlpvim/ctrlp.vim'
@@ -64,7 +64,12 @@ call plug#begin()
 "Dracula theme
 	Plug 'dracula/vim',{'name':'dracula'}
 
-"javasript vim
+" javasript vim
+
+" Install prettier
+	Plug 'prettier/vim-prettier', { 
+				\	'do': 'npm install', 
+				\ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] } 
 
 call plug#end()
 
@@ -294,3 +299,10 @@ map <leader>gs :Git status<CR>
 map <leader>gd :Gvdiffsplit<CR>
 map <leader>gg :vert Git<CR>
 map <leader>gp :Git push<CR>
+
+
+""""""""""""""""""""""""""""""""""""""""""""" 
+""""""""""""""""""""""""""""""""""""""""""""" 
+""""""""""""""""""""""""""""""""""""""""""""" 
+
+nmap <Leader>py <Plug>(Prettier)
