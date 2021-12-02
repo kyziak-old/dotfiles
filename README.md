@@ -161,6 +161,7 @@ Con esto ya se puede usar ALE y YCM en proyectos que involucren javascript.
 - [ ] Crear un script en python o bash para automatizar la instalación de las configuraciones. 
 - [ ] Crear un script en bash para instalar Arch Linux desde el comienzo. 
 - [ ] Incluir la configuración de Neovim 
+- [ ] Agregar la configuración e instalación de `mariadb` en `Arch Linux WSL`. 
 
 ### Plugins
 
