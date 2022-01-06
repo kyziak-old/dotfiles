@@ -42,8 +42,8 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 
 # Include aliases file
-if [ -f ~/.bash_aliases ]; then
-  . ~/.bash_aliases
+if [ -f $HOME/.dotfiles/bash/aliases ]; then
+  . $HOME/.dotfiles/bash/aliases
 fi
 
 #case ${TERM} in
