@@ -1,0 +1,4 @@
+# create and enter into a directory
+function makedir(){
+	mkdir "$@" && cd "$@"
+}

@@ -4,7 +4,11 @@ alias v='vim'
 alias en='emacs -nw'
 alias em='emacs'
 alias ku='kill -u kyziak'
-alias upd='sudo pacman -Syyu'
+#alias upd='sudo pacman -Syyu'
+alias upd='sudo apt-get update && sudo apt-get upgrade'
+alias rbash='source ~/.bashrc'
+
+# Aliases for git
 alias gs='git status'
 alias gcm='git commit -m'
 alias gp='git push'
@@ -12,7 +16,12 @@ alias gt='git pull'
 alias gd='git diff'
 alias ga='git add'
 alias gl='git log'
-alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT0'
+alias gbm='git branch -M main'
+
+
+#alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT0'
+alias py='python3'
+alias activate='source venv/bin/activate'
 
 # aliases for ls 
 alias ll='ls -alF'
