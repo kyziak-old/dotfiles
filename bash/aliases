@@ -1,3 +1,5 @@
+#!/bin/bash
+
 alias sn='shutdown now'
 alias r='reboot'
 alias v='vim'
@@ -18,10 +20,12 @@ alias ga='git add'
 alias gl='git log'
 alias gbm='git branch -M main'
 
-
 #alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT0'
+
+#Python aliases
 alias py='python3'
-alias activate='source venv/bin/activate'
+alias activate='source .venv/bin/activate'
+alias runserver='./manage.py runserver'
 
 # aliases for ls 
 alias ll='ls -alF'

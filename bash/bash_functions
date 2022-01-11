@@ -1,4 +1,27 @@
+#!/bin/bash
+
 # create and enter into a directory
 function makedir(){
 	mkdir "$@" && cd "$@"
+}
+
+# Create a new python environment with the specified version
+function mkvenv(){
+	python"$@" -m venv .venv
+}
+
+####################
+###### Django ######
+####################
+
+#Create a new Django application
+function djapp(){
+	mkdir applications/"$1" && ./manage.py startapp "$1" applications/"$1"
+}
+
+# Migrate application on python
+function djmigrations(){
+	./manage.py makemigrations
+	sleep 1
+	./manage.py migrate
 }
