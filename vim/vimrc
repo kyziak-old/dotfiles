@@ -97,6 +97,10 @@ nnoremap <Right> :echoerr "Stop being an asshole"<CR>
 " Set mapleader key
 let mapleader=','
 
+" Remap jj and kk to esc when in normal mode
+imap jj <Esc>
+imap kk <Esc>
+
 
 """"""""""""""""""""""""""""""""""""""""""""" 
 """"""""""""NERDTreee config"""""""""""""""""
