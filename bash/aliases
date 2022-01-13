@@ -26,6 +26,8 @@ alias gbm='git branch -M main'
 alias py='python3'
 alias activate='source .venv/bin/activate'
 alias runserver='./manage.py runserver'
+alias makemigrations='./manage.py makemigrations'
+alias migrate='./manage.py migrate'
 
 # aliases for ls 
 alias ll='ls -alF'
