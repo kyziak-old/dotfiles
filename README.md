@@ -156,12 +156,9 @@ Con esto ya se puede usar ALE y YCM en proyectos que involucren javascript.
 
 ### Cosas por hacer
 
-- [ ] Incluir la forma en que se instala Arch Linux en WSL desde Docker.
-- [ ] Eliminar la descripción de configuración de Ubuntu.
+- [ ] Aumentar la descripción de configuración de Ubuntu.
 - [ ] Crear un script en python o bash para automatizar la instalación de las configuraciones. 
-- [ ] Crear un script en bash para instalar Arch Linux desde el comienzo. 
 - [ ] Incluir la configuración de Neovim 
-- [ ] Agregar la configuración e instalación de `mariadb` en `Arch Linux WSL`. 
 
 ### Plugins
 
