@@ -59,7 +59,7 @@ sudo pacman -S nodejs-lts-fermium go clang texlive-most bash-completion code dme
 ### Ubuntu
 En Ubuntu se requieren algunos paquetes más, ya que por defecto no trae ningún tipo de programa de desarrollo, así que corremos el siguiente comando 
 ```
-sudo apt-get install build-essential texlive-full curl wget cmake python3-dev gcc g++
+sudo apt-get install build-essential texlive-full curl wget cmake python3-dev gcc g++ python3.9-full bash-completion openjdk-jre
 ```
 La instalación de fuentes y demás cosas se hacen en Windows. Y como **WSL** no tiene `xserver` entonces no es necesario instalar nada más. Sin embargo, `Nodejs` y `golang` deben ser instalados manualmente, ya que la versión del primero es demasiado vieja y en el segundo no existe forma. 
 
@@ -68,7 +68,7 @@ Este tutorial mostrará cómo instalar la versión `14.x` de `Nodejs`, para vers
 
 Lo primero es traerse el script para instalar `nvm`
 ```
- curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 ```
 Esto modifca las variables de entorno de bash, entonces accedemos a una nueva bash con 
 ```
@@ -77,11 +77,11 @@ source ~/.bashrc
 
 y verificamos que `nvm` funciona listando las versiones de `nodejs`
 ```
-nvm list-remote | less
+nvm list-remote | tail
 ```
-Elegimos la versión a instalar y corremos el siguiente comando (`14.x` en nuestro ejemplo)
+Elegimos la versión a instalar y corremos el siguiente comando (`16.x` en nuestro ejemplo)
 ```
-nvm install v14.18.0
+nvm install v16.14.0
 ```
 
 Y comprobamos que todo esté bien
@@ -94,11 +94,11 @@ Lo cual debería mostrarnos la versión de `nodejs` instalada en nuestros comput
 #### Golang
 Para instalar `Golang` basta con seguir las [instrucciones](https://golang.org/doc/install) presentadas en su página web. Pero, como soy perezoso, lo pondré todo en este lugar. De nuevo, esto aplica para la versión `1.17.2` que es la que tengo instalada al momento de escribir esto, para futuras versiones, revisar la página 
 ```
-curl -c https://golang.org/dl/go1.17.2.linux-amd64.tar.gz
+curl -c https://go.dev/dl/go1.17.6.linux-amd64.tar.gz
 ```
 extraemos el archivo descargado e instalamos en `/usr/local`
 ```
-sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.17.2.linux-amd64.tar.gz
+sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzfv go1.17.6.linux-amd64.tar.gz
 ```
 En mi bashrc ya está `golang` agregado en el `$PATH`, así que omitiremos este paso que indica la guía de instalación e iremos por la verificación de la versión directamente. 
 ```
